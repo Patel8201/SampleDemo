@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Reset password</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Consulting Website Template Free Download" name="keywords">
+        <meta content="Consulting Website Template Free Download" name="description">
+
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Lato&family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
+        
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+
+        <style>
+            /* Add some basic styling for the form and pop-up */
+            #loginForm {
+              max-width: 300px;
+              margin: 50px auto;
+            }
+        
+            #popup {
+              display: none;
+              position: fixed;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              padding: 20px;
+              background-color: #f1f1f1;
+              border: 1px solid #ccc;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+              z-index: 1;
+            }
+          </style>
+
+    </head>
+
+    <body class="page">
+
+        <!-- Nav Bar Start -->
+        <div class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <div class="container-fluid">
+                <a href="index.html" class="navbar-brand">KPMG</a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto">
+                        <a href="index.html" class="nav-item nav-link">Home</a>
+                        <a href="request_access.html" class="nav-item nav-link ">Request Access</a>
+                        <a href="login.html" class="nav-item nav-link active">Login</a>
+                        <a href="blog.html" class="nav-item nav-link">Blog</a>
+                        <a href="event.html" class="nav-item nav-link">Event</a>
+                        
+                        
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Nav Bar End -->
+        
+        
+        <!-- Contact Start -->
+        <div class="contact mt-125">
+            <div class="container">
+                <div class="section-header">
+                    <p>Get In Touch</p>
+                    <h3>Welcome back, KPMG alumni! Log in to your account to reconnect with fellow graduates and access exclusive events. Your alma mater is excited to continue the journey with you. Enter your credentials below and join our vibrant alumni community.</h3>
+                </div>
+                <div class="row align-items-center">
+                   
+                    <div class="col-md-7">
+                        <div class="contact-form">
+                            <div id="success"></div>
+
+
+                            <!-- Forget password Form -->
+                            <h1>Reset Password</h1>
+                            <form id="resetPasswordForm">
+                                <label for="password">New Password:</label><br>
+                                <input type="password" id="password" name="password" required><br><br>
+                                <label for="confirmPassword">Confirm Password:</label><br>
+                                <input type="password" id="confirmPassword" name="confirmPassword" required><br><br>
+                                <button type="button" onclick="resetPassword()">Reset Password</button>
+                            </form>
+                        
+                            <script>
+                                function resetPassword() {
+                                    var password = document.getElementById("password").value;
+                                    var confirmPassword = document.getElementById("confirmPassword").value;
+                        
+                                    if (password !== confirmPassword) {
+                                        alert("Passwords do not match.");
+                                        return;
+                                    }
+                        
+                                    // Reset password logic here (using AJAX or form submission)
+                                    console.log("Password reset successfully.");
+                                    // Redirect to login page or wherever you need
+                                    window.location.href = "login.html";
+                                }
+                            </script>
+  
+  <!-- Pop-up message -->
+  <div id="popup">
+    <p>Logged in</p>
+    <button onclick="hidePopup()">Close</button>
+  </div>
+  
+  <!-- JavaScript to show/hide the pop-up -->
+  <script>
+    function showPopup() {
+      document.getElementById('popup').style.display = 'block';
+    }
+  
+    function hidePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+  </script>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Contact End -->
+
+
+       <!-- Footer Start -->
+       <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="row">
+                        
+                        <div class="col-md-6">
+                            <div class="footer-link">
+                                <h2>Quick Links</h2>
+                                <a href="request_access.html">Request Access</a>
+                                <a href="login.html">Login</a>
+                                <a href="event.html">Events</a>
+                                <a href="blog.html">Blogs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+        <div class="container copyright">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; <a href="#">KPMG</a>, All Right Reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <p>Designed By: <a href="https://htmlcodex.com">Monika | Shreya</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/counterup/counterup.min.js"></script>
+        
+        <!-- Contact Javascript File -->
+        <script src="mail/jqBootstrapValidation.min.js"></script>
+        <script src="mail/contact.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Event Registration</title>
+
+        <style>
+            select {
+                padding: 8px;
+                margin: 5px;
+            }
+        </style>
+    
+    <style>
+        /* Add some basic styling for the form and pop-up */
+        #loginForm {
+          max-width: 300px;
+          margin: 50px auto;
+        }
+    
+        #popup {
+          display: none;
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          padding: 20px;
+          background-color: #f1f1f1;
+          border: 1px solid #ccc;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          z-index: 1;
+        }
+      </style>
+
+
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Consulting Website Template Free Download" name="keywords">
+        <meta content="Consulting Website Template Free Download" name="description">
+
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Lato&family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
+        
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+
+        
+
+
+    </head>
+
+    <body class="page">
+        
+        <!-- Nav Bar Start -->
+        <div class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <div class="container-fluid">
+                <a href="index.html" class="navbar-brand">KPMG</a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto">
+                        <a href="index.html" class="nav-item nav-link">Home</a>
+                        <a href="request_access.html" class="nav-item nav-link ">Request Access</a>
+                        <a href="login.html" class="nav-item nav-link">Login</a>
+                        <a href="blog.html" class="nav-item nav-link">Blog</a>
+                        <a href="event.html" class="nav-item nav-link active">Event</a>
+                        
+                        
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Nav Bar End -->
+        
+        
+        <!-- Contact Start -->
+        <div class="contact mt-125">
+            <div class="container">
+                <div class="section-header">
+                    <p>Get In Touch</p>
+                    <h3>Unlock the nostalgia and camaraderie at our upcoming alumni event! Register now to secure your spot and join fellow alumnae for a memorable gathering filled with connections, conversations, and cherished moments. Don't miss out on this opportunity to relive the spirit of KPMG. Whether it's a reunion, networking event, or workshop, we look forward to celebrating with you. Reserve your place today and let the festivities begin!</h3>
+                </div>
+                <div class="row align-items-center">
+                   
+                    <div class="col-md-7">
+                        <div class="contact-form">
+                            <div id="success"></div>
+                            <center>
+                                <h2>Registration For The Event - 10 March 2024</h2>
+                                
+                                <form onsubmit="showPopup(); return false;">
+                                    <label for="email">Email Address:</label>
+                                    <input type="email" id="email" name="email" placeholder="youremail@gmail.com" minlength="9" maxlength="64" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required  oninvalid="this.setCustomValidity('This is not a valid EmailId, please enter correct one.')" oninput="this.setCustomValidity('')">
+                                <br><br>
+                                
+                                
+                                    <label for="password">Password:</label>
+                                    <input type="password" id="password" name="password"  minlength="8" maxlength="20" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  required  oninvalid="this.setCustomValidity('This is not a valid Password')" oninput="this.setCustomValidity('')">
+                                    <br>
+                                    <button type="submit">Register</button>
+                                  </form>
+                              </center>
+                                </div>
+                                
+                                <!-- Pop-up message -->
+                                <div id="popup">
+                                  <p>Logged in</p>
+                                  <button onclick="hidePopup()">ok</button>
+                               
+                                
+                                <!-- JavaScript to show/hide the pop-up -->
+                                <!--<script> -->
+                                  function showPopup() {
+                                    document.getElementById('popup').style.display = 'block';
+                                  }
+                                
+                                  function hidePopup() {
+                                    document.getElementById('popup').style.display = 'none';
+                                  }
+                              
+                                </script>
+                                <center>
+                                <p><a href="forgetpw.html">Forgot Your Password?</a></p>
+                                </center>
+                                
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Contact End -->
+
+
+        <!-- Footer Start -->
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="row">
+                            
+                            <div class="col-md-6">
+                                <div class="footer-link">
+                                    <h2>Quick Links</h2>
+                                    <a href="request_access.html">Request Access</a>
+                                    <a href="login.html">Login</a>
+                                    <a href="event.html">Events</a>
+                                    <a href="blog.html">Blogs</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+            <div class="container copyright">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>&copy; <a href="#">KPMG</a>, All Right Reserved.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>Designed By: <a href="https://htmlcodex.com">Monika | Shreya</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/counterup/counterup.min.js"></script>
+        
+        <!-- Contact Javascript File -->
+        <script src="mail/jqBootstrapValidation.min.js"></script>
+        <script src="mail/contact.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+    </body>
+</html>

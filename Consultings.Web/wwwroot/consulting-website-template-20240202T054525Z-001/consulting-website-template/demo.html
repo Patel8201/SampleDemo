@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+        <meta charset="utf-8">
+        <title>Request Access</title>
+
+        <script>
+            const statesByCountry = {
+                usa: {
+                    'New York': ['New York City', 'Buffalo', 'Rochester', 'Syracuse', 'Albany'],
+                    'California': ['Los Angeles', 'San Francisco', 'San Diego', 'Sacramento', 'Fresno'],
+                    'Texas': ['Houston', 'Dallas', 'Austin', 'San Antonio', 'Fort Worth'],
+                    'Florida': ['Miami', 'Orlando', 'Tampa', 'Jacksonville', 'Fort Lauderdale'],
+                    'Illinois': ['Chicago', 'Springfield', 'Peoria', 'Rockford', 'Aurora']
+                },
+                canada: {
+                    'Ontario': ['Toronto', 'Ottawa', 'Hamilton', 'London', 'Mississauga'],
+                    'Quebec': ['Montreal', 'Quebec City', 'Laval', 'Gatineau', 'Sherbrooke'],
+                    'British Columbia': ['Vancouver', 'Victoria', 'Surrey', 'Burnaby', 'Kelowna'],
+                    'Alberta': ['Calgary', 'Edmonton', 'Red Deer', 'Lethbridge', 'Medicine Hat'],
+                    'Manitoba': ['Winnipeg', 'Brandon', 'Steinbach', 'Portage la Prairie', 'Thompson']
+                },
+                uk: {
+                    'England': ['London', 'Manchester', 'Birmingham', 'Liverpool', 'Bristol'],
+                    'Scotland': ['Edinburgh', 'Glasgow', 'Aberdeen', 'Dundee', 'Inverness'],
+                    'Wales': ['Cardiff', 'Swansea', 'Newport', 'Wrexham', 'Bangor'],
+                    'Northern Ireland': ['Belfast', 'Derry', 'Lisburn', 'Newry', 'Armagh'],
+                    'Isle of Man': ['Douglas', 'Peel', 'Ramsey', 'Castletown', 'Port Erin']
+                },
+                australia: {
+                    'New South Wales': ['Sydney', 'Newcastle', 'Central Coast', 'Wollongong', 'Maitland'],
+                    'Victoria': ['Melbourne', 'Geelong', 'Ballarat', 'Bendigo', 'Shepparton'],
+                    'Queensland': ['Brisbane', 'Gold Coast', 'Sunshine Coast', 'Townsville', 'Cairns'],
+                    'Western Australia': ['Perth', 'Fremantle', 'Mandurah', 'Bunbury', 'Geraldton'],
+                    'South Australia': ['Adelaide', 'Mount Gambier', 'Whyalla', 'Murray Bridge', 'Port Augusta']
+                },
+                india: {
+                    'Maharashtra': ['Mumbai', 'Pune', 'Nagpur', 'Nashik', 'Aurangabad'],
+                    'Tamil Nadu': ['Chennai', 'Coimbatore', 'Madurai', 'Tiruchirappalli', 'Salem'],
+                    'Uttar Pradesh': ['Lucknow', 'Kanpur', 'Agra', 'Varanasi', 'Meerut'],
+                    'Karnataka': ['Bangalore', 'Mysore', 'Hubli', 'Mangalore', 'Belgaum'],
+                    'Delhi': ['New Delhi', 'North Delhi', 'South Delhi', 'East Delhi', 'West Delhi']
+                }
+            };
+    
+            function updateStates() {
+                const countrySelect = document.getElementById('country');
+                const stateSelect = document.getElementById('state');
+                const citySelect = document.getElementById('city');
+    
+                const selectedCountry = countrySelect.value;
+    
+                // Populate states based on the selected country
+                const states = Object.keys(statesByCountry[selectedCountry]);
+                stateSelect.innerHTML = '<option value="" selected disabled>Select State</option>';
+                states.forEach(state => {
+                    const option = document.createElement('option');
+                    option.value = state;
+                    option.text = state;
+                    stateSelect.appendChild(option);
+                });
+    
+                // Enable the state select
+                stateSelect.disabled = false;
+                // Disable and reset the city select
+                citySelect.disabled = true;
+                citySelect.innerHTML = '<option value="" selected disabled>Select City</option>';
+            }
+    
+            function updateCities() {
+                const countrySelect = document.getElementById('country');
+                const stateSelect = document.getElementById('state');
+                const citySelect = document.getElementById('city');
+    
+                // Enable the city select
+                citySelect.disabled = false;
+    
+                // You can populate cities based on the selected state
+                const selectedCountry = countrySelect.value;
+                const selectedState = stateSelect.value;
+                const cities = statesByCountry[selectedCountry][selectedState];
+    
+                citySelect.innerHTML = '<option value="" selected disabled>Select City</option>';
+                cities.forEach(city => {
+                    const option = document.createElement('option');
+                    option.value = city;
+                    option.text = city;
+                    citySelect.appendChild(option);
+                });
+            }
+        </script>
+        <script>
+            function validateForm() {
+                var designation = document.getElementById("designation").value;
+    
+                if (designation === "") {
+                    alert("Please select a professional designation");
+                    return false;
+                }
+    
+                // Additional validation logic can be added here
+    
+                return true;
+            }
+        </script>
+
+
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Consulting Website Template Free Download" name="keywords">
+        <meta content="Consulting Website Template Free Download" name="description">
+
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Lato&family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
+        
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+
+        <style>
+            /* Add some basic styling for the form and pop-up */
+            #loginForm {
+              max-width: 300px;
+              margin: 50px auto;
+            }
+        
+            #popup {
+              display: none;
+              position: fixed;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              padding: 20px;
+              background-color: #f1f1f1;
+              border: 1px solid #ccc;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+              z-index: 1;
+            }
+          </style>
+
+
+    </head>
+
+    <body class="page">
+        
+        <!-- Nav Bar Start -->
+        <div class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <div class="container-fluid">
+                <a href="index.html" class="navbar-brand">KPMG</a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto">
+                        <a href="index.html" class="nav-item nav-link">Home</a>
+                        <a href="request_access.html" class="nav-item nav-link active">Request Access</a>
+                        <a href="login.html" class="nav-item nav-link">Login</a>
+                        <a href="blog.html" class="nav-item nav-link">Blog</a>
+                        <a href="event.html" class="nav-item nav-link">Event</a>
+                        
+                        
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Nav Bar End -->
+        
+        
+        <!-- Contact Start -->
+        <div class="contact mt-125">
+            <div class="container">
+                <div class="section-header">
+                    <p>Get In Touch</p>
+                    <h3>Requesting access to the KPMG in Canada Alumni Web Portal is easy! Simply fill out the form below and click “Submit”. Please note that, in order for us to process your request and send you a user ID and password, you will need to provide at least one email address.</h3>
+                </div>
+                <div class="row align-items-center">
+                   
+                    <div class="col-md-7">
+                        <div class="contact-form">
+                            <div id="success"></div>
+
+                            <form>
+                                <h3>Alumni Details</h3>
+                        
+                                <label for="title">Title:</label>
+                                <input type="text" id="title" name="title" placeholder="Enter Title" pattern="[M][r|s|rs]{1}" required oninvalid="this.setCustomValidity('This is not a valid title')" oninput="this.setCustomValidity('')">
+                                <br /><br />
+                        
+                                <label for="firstName">First Name:</label>
+                                <input type="text" id="firstName" name="firstName" placeholder="Enter First Name" minlength="2" maxlength="32" pattern="[A-Za-z]{1,32}" required oninvalid="this.setCustomValidity('This is not a valid First Name')" oninput="this.setCustomValidity('')">
+                                <br /><br />
+                        
+                                <label for="lastName">Last Name:</label>
+                                <input type="text" id="lastName" name="lastName" placeholder="Enter Last Name" minlength="2" maxlength="32" pattern="[A-Za-z]{1,32}" required  oninvalid="this.setCustomValidity('This is not a valid Last Name')" oninput="this.setCustomValidity('')">
+                                <br /><br />
+                        
+                                <label for="otherLastName">Other Last Name:</label>
+                                <input type="text" id="otherLastName" name="otherLastName" placeholder="Enter Other Last Name" minlength="2" maxlength="32" pattern="[A-Za-z]{1,32}"  oninvalid="this.setCustomValidity('This is not a valid Name')" oninput="this.setCustomValidity('')">
+                                <br /><br />
+
+                                <label for="CA Qualification Year">CA Qualification Year</label>
+                                <select id=" year" required>
+                                    <option value="2024">2024</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2010">2010</option>
+                                    <option value="2009">2009</option>
+                                    <option value="2008">2008</option>
+                                    <option value="2007">2007</option>
+                                    <option value="2006">2006</option>
+                                    <option value="2005">2005</option>
+                                    <option value="2004">2004</option>
+                                    <option value="2003">2003</option>
+                                    <option value="2002">2002</option>
+                                    <option value="2001">2001</option>
+                                    <option value="2000">2000</option>
+                                    
+                                </select>
+                                
+                                <br /><br />
+                        
+                                
+                        
+                                
+                                <label for="designation">Professional Designation:</label>
+                                <select id="designation" name="Professional Designation">
+                                    
+                                    <option value="BA">BA</option>
+                                    <option value="BBA">BBA</option>
+                                    <option value="BCom">BCom</option>
+                                    <option value="BSc">BSc</option>
+                                    <option value="CA">CA</option>
+                                    <option value="CBV">CBV</option>
+                                    <option value="CC">CC</option>
+                                    <option value="CIP">CIP</option>
+                                    <option value="CGA">CGA</option>
+                                    <!-- Add more options as needed -->
+                                </select>
+                                <br /><br />
+                        
+                                
+                               
+                        
+                                <h3>Business Details</h3>
+                                <label for="currentTitle">Current Title:</label>
+                                <input type="text" id="currentTitle" name="currentTitle" placeholder="Enter Current Title" pattern="[A-Za-z]{1,32}"  oninvalid="this.setCustomValidity('This is not a valid Title')" oninput="this.setCustomValidity('')">
+                                <br /><br />
+                        
+                                <label for="phone">Phone:</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Enter Phone" pattern="[6789][0-9]{9}" required  oninvalid="this.setCustomValidity('This is not a valid Phone Number')" oninput="this.setCustomValidity('')">
+                                <br /><br />
+                        
+                                <label for="extension">Extension:</label>
+                                <input type="text" id="extension" name="extension" placeholder="Enter Extension" pattern="[0-9]{0,3}"  oninvalid="this.setCustomValidity('This is not a valid Extension')" oninput="this.setCustomValidity('')">
+                                <br /><br />
+                        
+                                <label for="company">Company:</label>
+                                <input type="text" id="company" name="company" placeholder="Enter Company" pattern="[A-Za-z]{1,32}" required  oninvalid="this.setCustomValidity('This is not a valid Company Name')" oninput="this.setCustomValidity('')">
+                                <br /><br />
+                        
+                                <label for="building">Building:</label>
+                                <input type="text" id="building" name="building" placeholder="Enter Building" pattern="[A-Za-z]{1,32}"  oninvalid="this.setCustomValidity('This is not a valid Building')" oninput="this.setCustomValidity('')">
+                                <br /><br /
+                        
+                                <label for="number">Number:</label>
+                                <input type="text" id="number" name="number" placeholder="Enter Number" pattern="[1-9]"  oninvalid="this.setCustomValidity('This is not a valid Number')" oninput="this.setCustomValidity('')">
+                                <br /><br />
+                        
+                                <label for="street">Street:</label>
+                                <input type="text" id="street" name="street" placeholder="Enter Street" pattern="[A-Za-z0-9]{1,32}"  oninvalid="this.setCustomValidity('This is not a valid Street')" oninput="this.setCustomValidity('')">
+                                <br /><br />
+                        
+                               
+                                
+                        
+                                <label for="country">Country:</label>
+                                <select id="country" onchange="updateStates()" required>
+                                    <option value="india">India</option>
+                                    <option value="usa">USA</option>
+                                    <option value="canada">Canada</option>
+                                    <option value="uk">United Kingdom</option>
+                                    <option value="australia">Australia</option>
+                                    
+                                </select>
+                        
+                                <br /><br />
+                        
+                                
+                        
+                                <label for="state">State:</label>
+                                <select id="state" onchange="updateCities()" disabled>
+                                    <option value="" selected disabled>Select State</option>
+                                </select>
+                        
+                                <br /><br />
+                        
+                                 
+                        
+                                <label for="city">City:</label>
+                                <select id="city" disabled>
+                                    <option value="" selected disabled>Select City</option>
+                                </select>
+                        
+                                <br /><br />
+                        
+                                <label for="postalCode">Postal Code:</label>
+                                <input type="text" id="postalCode" name="postalCode" placeholder="Enter Postal Code" pattern="[1-9][0-9]{5}"  oninvalid="this.setCustomValidity('This is not a valid Postal Code')" oninput="this.setCustomValidity('')">
+                                <br /><br />
+                        
+                                <h3>Employee Details</h3>
+                               
+                                <label for="Commencement Year">Commencement Year</label>
+                        <select id=" year" required>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+                            <option value="2015">2015</option>
+                            <option value="2014">2014</option>
+                            <option value="2013">2013</option>
+                            <option value="2012">2012</option>
+                            <option value="2011">2011</option>
+                            <option value="2010">2010</option>
+                            <option value="2009">2009</option>
+                            <option value="2008">2008</option>
+                            <option value="2007">2007</option>
+                            <option value="2006">2006</option>
+                            <option value="2005">2005</option>
+                            <option value="2004">2004</option>
+                            <option value="2003">2003</option>
+                            <option value="2002">2002</option>
+                            <option value="2001">2001</option>
+                            <option value="2000">2000</option>
+                            
+                        </select>
+                                <br /><br />
+                        
+                                <label for="Leave Year">Leave Year</label>
+                        <select id="year" required>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+                            <option value="2015">2015</option>
+                            <option value="2014">2014</option>
+                            <option value="2013">2013</option>
+                            <option value="2012">2012</option>
+                            <option value="2011">2011</option>
+                            <option value="2010">2010</option>
+                            <option value="2009">2009</option>
+                            <option value="2008">2008</option>
+                            <option value="2007">2007</option>
+                            <option value="2006">2006</option>
+                            <option value="2005">2005</option>
+                            <option value="2004">2004</option>
+                            <option value="2003">2003</option>
+                            <option value="2002">2002</option>
+                            <option value="2001">2001</option>
+                            <option value="2000">2000</option>
+                            
+                        </select>
+                        
+                                <br /><br />
+                        
+                                <label for="KPMG Office">KPMG Office:</label>
+                                <select id=" Select Office" name="KPMG Office" required>
+                        
+                                    <option value="MONTREAL">MONTREAL</option>
+                                    <option value="GTA">GTA</option>
+                                    <option value="CALGARY">CALGARY</option>
+                                    <option value="GVA-DOWNTOWN VANCOUVER">GVA-DOWNTOWN VANCOUVER</option>
+                                    <option value="GVA-VICTORIA">GVA-VICTORIA</option>
+                                    <option value="KINGSTON">KINGSTON</option>
+                                    <option value="NORTH BAY">NORTH BAY</option>
+                                    <option value="SUDBURY">SUDBURY</option>
+                                    <option value="HAMILTON">HAMILTON</option>
+                                    <!-- Add more options as needed -->
+                                </select>
+                                <br /><br />
+                        
+                                <h3>Personal Details</h3>
+                               
+                                
+                                <label for="Pcountry">Country:</label>
+                                <select id="Pcountry" onchange="populatePstates()" required>
+                                    <option value="india">India</option>
+                                    <option value="usa">USA</option>
+                                    <option value="canada">Canada</option>
+                                    <option value="uk">United Kingdom</option>
+                                    <option value="australia">Australia</option>
+                                   
+                                    <!-- Add more countries as needed -->
+                                </select>
+                                <br /><br />
+                        
+                                <label for="Pstate">State:</label>
+                                <select id="Pstate" onchange="populatePcities()" required>
+                                    <!-- States will be populated dynamically based on the selected Pcountry -->
+                                </select>
+                                <br /><br />
+                        
+                                <label for="Pcity">City:</label>
+                                <select id="Pcity" required>
+                                    <!-- Cities will be populated dynamically based on the selected Pstate -->
+                                </select>
+                        
+                                <script>
+                                    const PcountryStateCity = {
+                                        usa: {
+                                            'New York': ['New York City', 'Buffalo', 'Rochester', 'Syracuse', 'Albany'],
+                                            'California': ['Los Angeles', 'San Francisco', 'San Diego', 'Sacramento', 'Fresno'],
+                                            'Texas': ['Houston', 'Dallas', 'Austin', 'San Antonio', 'Fort Worth'],
+                                            'Florida': ['Miami', 'Orlando', 'Tampa', 'Jacksonville', 'Fort Lauderdale'],
+                                            'Illinois': ['Chicago', 'Springfield', 'Peoria', 'Rockford', 'Aurora']
+                                        },
+                                        canada: {
+                                            'Ontario': ['Toronto', 'Ottawa', 'Hamilton', 'London', 'Mississauga'],
+                                            'Quebec': ['Montreal', 'Quebec City', 'Laval', 'Gatineau', 'Sherbrooke'],
+                                            'British Columbia': ['Vancouver', 'Victoria', 'Surrey', 'Burnaby', 'Kelowna'],
+                                            'Alberta': ['Calgary', 'Edmonton', 'Red Deer', 'Lethbridge', 'Medicine Hat'],
+                                            'Manitoba': ['Winnipeg', 'Brandon', 'Steinbach', 'Portage la Prairie', 'Thompson']
+                                        },
+                                        uk: {
+                                            'England': ['London', 'Manchester', 'Birmingham', 'Liverpool', 'Bristol'],
+                                            'Scotland': ['Edinburgh', 'Glasgow', 'Aberdeen', 'Dundee', 'Inverness'],
+                                            'Wales': ['Cardiff', 'Swansea', 'Newport', 'Wrexham', 'Bangor'],
+                                            'Northern Ireland': ['Belfast', 'Derry', 'Lisburn', 'Newry', 'Armagh'],
+                                            'Isle of Man': ['Douglas', 'Peel', 'Ramsey', 'Castletown', 'Port Erin']
+                                        },
+                                        australia: {
+                                            'New South Wales': ['Sydney', 'Newcastle', 'Central Coast', 'Wollongong', 'Maitland'],
+                                            'Victoria': ['Melbourne', 'Geelong', 'Ballarat', 'Bendigo', 'Shepparton'],
+                                            'Queensland': ['Brisbane', 'Gold Coast', 'Sunshine Coast', 'Townsville', 'Cairns'],
+                                            'Western Australia': ['Perth', 'Fremantle', 'Mandurah', 'Bunbury', 'Geraldton'],
+                                            'South Australia': ['Adelaide', 'Mount Gambier', 'Whyalla', 'Murray Bridge', 'Port Augusta']
+                                        },
+                                        india: {
+                                            'Maharashtra': ['Mumbai', 'Pune', 'Nagpur', 'Nashik', 'Aurangabad'],
+                                            'Tamil Nadu': ['Chennai', 'Coimbatore', 'Madurai', 'Tiruchirappalli', 'Salem'],
+                                            'Uttar Pradesh': ['Lucknow', 'Kanpur', 'Agra', 'Varanasi', 'Meerut'],
+                                            'Karnataka': ['Bangalore', 'Mysore', 'Hubli', 'Mangalore', 'Belgaum'],
+                                            'Delhi': ['New Delhi', 'North Delhi', 'South Delhi', 'East Delhi', 'West Delhi']
+                                        }
+                                    };
+                        
+                                    function populatePstates() {
+                                        const PcountryDropdown = document.getElementById('Pcountry');
+                                        const PstateDropdown = document.getElementById('Pstate');
+                                        const selectedPcountry = PcountryDropdown.value;
+                        
+                                        // Clear existing options
+                                        PstateDropdown.innerHTML = '<option value="">Select State</option>';
+                        
+                                        // Populate states based on the selected Pcountry
+                                        for (const Pstate in PcountryStateCity[selectedPcountry]) {
+                                            const option = document.createElement('option');
+                                            option.value = Pstate;
+                                            option.textContent = Pstate;
+                                            PstateDropdown.appendChild(option);
+                                        }
+                        
+                                        // Trigger population of cities for the selected Pstate
+                                        populatePcities();
+                                    }
+                        
+                                    function populatePcities() {
+                                        const PstateDropdown = document.getElementById('Pstate');
+                                        const PcityDropdown = document.getElementById('Pcity');
+                                        const selectedPcountry = document.getElementById('Pcountry').value;
+                                        const selectedPstate = PstateDropdown.value;
+                        
+                                        // Clear existing options
+                                        PcityDropdown.innerHTML = '<option value="">Select City</option>';
+                        
+                                        // Populate cities based on the selected Pcountry and Pstate
+                                        const cities = PcountryStateCity[selectedPcountry][selectedPstate];
+                                        if (cities) {
+                                            cities.forEach(city => {
+                                                const option = document.createElement('option');
+                                                option.value = city;
+                                                option.textContent = city;
+                                                PcityDropdown.appendChild(option);
+                                            });
+                                        }
+                                    }
+                        
+                                    // Initial population of states
+                                    populatePstates();
+                                </script>
+                                <br /><br />
+                        
+                        
+                                <label for="phone">Phone:</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Enter Phone" pattern="[6789][0-9]{9}" required  oninvalid="this.setCustomValidity('This is not a valid Phone Number')" oninput="this.setCustomValidity('')">
+                                <br /><br />
+                                
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email" placeholder="Enter Email" placeholder="youremail@kpmg.com" minlength="9" maxlength="64" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required  oninvalid="this.setCustomValidity('This is not a valid Email Id')" oninput="this.setCustomValidity('')">
+                                <br /><br />
+                        
+                                <input type="submit" value="Send">
+                            </form>
+                           
+<!-- Pop-up message -->
+<div id="popup">
+    <p>Your Request has been successfully submitted !</p>
+    <button onclick="hidePopup()">Close</button>
+  </div>
+  
+  <!-- JavaScript to show/hide the pop-up -->
+  <script>
+    function showPopup() {
+      document.getElementById('popup').style.display = 'block';
+    }
+  
+    function hidePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+  </script>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Contact End -->
+
+
+        <!-- Footer Start -->
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="row">
+                            
+                            <div class="col-md-6">
+                                <div class="footer-link">
+                                    <h2>Quick Links</h2>
+                                    <a href="request_access.html">Request Access</a>
+                                    <a href="login.html">Login</a>
+                                    <a href="event.html">Events</a>
+                                    <a href="blog.html">Blogs</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+            <div class="container copyright">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>&copy; <a href="#">KPMG</a>, All Right Reserved.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>Designed By: <a href="https://htmlcodex.com">Monika | Shreya</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/counterup/counterup.min.js"></script>
+        
+        <!-- Contact Javascript File -->
+        <script src="mail/jqBootstrapValidation.min.js"></script>
+        <script src="mail/contact.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+    </body>
+</html>
