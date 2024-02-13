@@ -18,6 +18,10 @@ namespace Consultings.Web.Controllers
             return View();
         }
 
-       
+        public IActionResult RequestAccess()
+        {
+            return View();
+        }
+
     }
 }
