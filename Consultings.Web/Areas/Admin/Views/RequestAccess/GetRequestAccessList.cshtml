@@ -1,0 +1,112 @@
+﻿@model List<RequestAccessListVM>
+@{
+    ViewData["Title"] = "GetRequestAccessList";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Dashboard</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">GetRequestAccessList</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+
+<div class="card" style="margin-left: 256px;">
+    <div class="card-header">
+        <h3 class="card-title">DataTable </h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>OtherLastName</th>
+                    <th>CAQualificationYear</th>
+                    <th>ProfessionalDesignation</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <th>@item.Title</th>
+                        <th>@item.FirstName</th>
+                        <th>@item.LastName</th>
+                        <th>@item.OtherLastName</th>
+                        <th>@item.CAQualificationYear</th>
+                        <th>@item.ProfessionalDesignation</th>
+                        <td>
+                            <a href="#" class="btn btn-danger btn-sm">Delete </a>
+                        </td>
+                    </tr>
+
+                }
+                  
+            </tbody>
+           </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+
+<div class="card" style="margin-left: 256px;">
+    <div class="card-header">
+        <h3 class="card-title">DataTable </h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>CurrentTitle</th>
+                    <th>Phone</th>
+                    <th>Extension</th>
+                    <th>Company</th>
+                    <th>BuildingNumber</th>
+                    <th>Street</th>
+                    <th>Country</th>
+                    <th>State</th>
+                    <th>City</th>
+                    <th>PostalCode</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th>@item.CurrentTitle</th>
+                        <th>@item.Phone</th>
+                        <th>@item.Extension</th>
+                        <th>@item.Company</th>
+                        <th>@item.BuildingNumber</th>
+                        <th>@item.Street</th>
+                        <th>@item.Country</th>
+                        <th>@item.State</th>
+                        <th>@item.City</th>
+                        <th>@item.PostalCode</th>
+                        <td>
+                            <a href="#" class="btn btn-danger btn-sm">Delete </a>
+                        </td>
+                    </tr>
+
+                }
+
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
