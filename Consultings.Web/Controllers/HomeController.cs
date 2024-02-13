@@ -22,6 +22,5 @@ namespace Consultings.Web.Controllers
         {
             return View();
         }
-
     }
 }

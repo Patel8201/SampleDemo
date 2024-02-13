@@ -13,6 +13,7 @@ namespace Consultings.Web.Areas.Admin.Controllers
         {
             _requestAccessService = requestAccessService;
         }
+        
 
         public async Task<IActionResult> GetRequestAccessList()
         {
