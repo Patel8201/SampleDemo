@@ -9,12 +9,10 @@ namespace EntityLayer.WebApplication.Entities
 {
     public class Home : BaseEntity
     {
-       
         public string Header { get; set; } = null!;
         public string Description { get; set; } = null!;
         public string FileName { get; set; } = null!;
         public string FileType { get; set; } = null!;
-
         // Notable Alumnae
         public string FullName { get; set; } = null!;
         public string Title { get; set; } = null!;

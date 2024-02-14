@@ -33,63 +33,22 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav ml-auto">
-                    <a class="nav-item nav-link active" href="index.html">Home</a>
+                    <a class="nav-item nav-link active" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                     <a class="nav-item nav-link" asp-area="" asp-controller="Home" asp-action="RequestAccess">Request Access</a>
-                    <a class="nav-item nav-link" href="login.html">Login</a>
-                    <a class="nav-item nav-link" href="blog.html">Blog</a>
-                    <a class="nav-item nav-link" href="event.html">Event</a>
+                    <a class="nav-item nav-link" asp-area="" asp-controller="Home" asp-action="Login" >Login</a>
+                    <a class="nav-item nav-link" asp-area="" asp-controller="Home" asp-action="Blog">Blog</a>
+                    <a class="nav-item nav-link" asp-area="" asp-controller="Home" asp-action="Event">Event</a>
                 </div>
             </div>
         </div>
     </nav>
     <!-- End Navigation Bar -->
-    <!-- Carousel -->
-    <div class="carousel">
-        <div class="container-fluid">
-            <div class="owl-carousel">
-                <div class="carousel-item">
-                    <div class="carousel-img">
-                        <img src="~/consulting-website-template-20240202T054525Z-001/consulting-website-template/img/carousel-1.jpg" alt="Image">
-                    </div>
-                    <div class="carousel-text">
-                        <h1>Alumni Web Portal</h1>
-                        <p>Past Meets Present: Your Alumni Network, Your Future Success!</p>
-                    </div>
-                </div>
-                <!-- Add other carousel items here -->
-            </div>
-        </div>
-    </div>
-    <!-- End Carousel -->
-    <!-- Video Modal -->
-    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <!-- 16:9 aspect ratio -->
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always" allow="autoplay"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Video Modal -->
-    <!-- Team Section -->
-    <div class="team">
-        <div class="container">
-            <div class="section-header">
-                <h2>Notable Alumnae</h2>
-            </div>
-            <div class="row">
-                <!-- Add team member cards here -->
-            </div>
-        </div>
-    </div>
-    <!-- End Team Section -->
+   
+    <!-- End Footer -->
+    <main id="main">
+        @RenderBody()
+    </main>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -99,10 +58,10 @@
                         <div class="col-md-6">
                             <div class="footer-link">
                                 <h2>Quick Links</h2>
-                                <a href="request_access.html">Request Access</a>
-                                <a href="login.html">Login</a>
-                                <a href="event.html">Events</a>
-                                <a href="blog.html">Blogs</a>
+                                <a asp-area="" asp-controller="Home" asp-action="RequestAccess">Request Access</a>
+                                <a asp-area="" asp-controller="Home" asp-action="Login">Login</a>
+                                <a asp-area="" asp-controller="Home" asp-action="Blog">Events</a>
+                                <a asp-area="" asp-controller="Home" asp-action="Event">Blogs</a>
                             </div>
                         </div>
                     </div>
@@ -120,11 +79,7 @@
             </div>
         </div>
     </footer>
-    <!-- End Footer -->
-    <main id="main">
-        @RenderBody()
-    </main>
-
+    
     <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
     <!-- JavaScript Libraries -->

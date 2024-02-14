@@ -13,8 +13,6 @@ namespace Consultings.Web.Areas.Admin.Controllers
         {
             _requestAccessService = requestAccessService;
         }
-        
-
         public async Task<IActionResult> GetRequestAccessList()
         {
             var requestAccessList = await _requestAccessService.GetAllListAsync();
@@ -48,7 +46,6 @@ namespace Consultings.Web.Areas.Admin.Controllers
         {
             await _requestAccessService.DeleteRequestAccessAsync(id);
             return RedirectToAction("GetRequestAccessList", "RequestAccess", new { Areas = ("Admin") });
-
         }
     }
 }

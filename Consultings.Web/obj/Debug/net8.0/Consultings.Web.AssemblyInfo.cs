@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Consultings.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+70dc2dd1872fd0a1bc14a7afb2ae94f1ab71cb30")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d3647b16f179d5b55aac99d67db6db3b17e45c7c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Consultings.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Consultings.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

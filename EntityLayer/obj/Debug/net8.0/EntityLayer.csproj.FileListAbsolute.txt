@@ -1,0 +1,16 @@
+C:\Users\zoyam\source\repos\Patel8201\SampleDemo\EntityLayer\bin\Debug\net8.0\EntityLayer.deps.json
+C:\Users\zoyam\source\repos\Patel8201\SampleDemo\EntityLayer\bin\Debug\net8.0\EntityLayer.dll
+C:\Users\zoyam\source\repos\Patel8201\SampleDemo\EntityLayer\bin\Debug\net8.0\EntityLayer.pdb
+C:\Users\zoyam\source\repos\Patel8201\SampleDemo\EntityLayer\bin\Debug\net8.0\CoreLayer.dll
+C:\Users\zoyam\source\repos\Patel8201\SampleDemo\EntityLayer\bin\Debug\net8.0\CoreLayer.pdb
+C:\Users\zoyam\source\repos\Patel8201\SampleDemo\EntityLayer\obj\Debug\net8.0\EntityLayer.csproj.AssemblyReference.cache
+C:\Users\zoyam\source\repos\Patel8201\SampleDemo\EntityLayer\obj\Debug\net8.0\EntityLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\zoyam\source\repos\Patel8201\SampleDemo\EntityLayer\obj\Debug\net8.0\EntityLayer.AssemblyInfoInputs.cache
+C:\Users\zoyam\source\repos\Patel8201\SampleDemo\EntityLayer\obj\Debug\net8.0\EntityLayer.AssemblyInfo.cs
+C:\Users\zoyam\source\repos\Patel8201\SampleDemo\EntityLayer\obj\Debug\net8.0\EntityLayer.csproj.CoreCompileInputs.cache
+C:\Users\zoyam\source\repos\Patel8201\SampleDemo\EntityLayer\obj\Debug\net8.0\EntityLayer.sourcelink.json
+C:\Users\zoyam\source\repos\Patel8201\SampleDemo\EntityLayer\obj\Debug\net8.0\EntityLayer.csproj.CopyComplete
+C:\Users\zoyam\source\repos\Patel8201\SampleDemo\EntityLayer\obj\Debug\net8.0\EntityLayer.dll
+C:\Users\zoyam\source\repos\Patel8201\SampleDemo\EntityLayer\obj\Debug\net8.0\refint\EntityLayer.dll
+C:\Users\zoyam\source\repos\Patel8201\SampleDemo\EntityLayer\obj\Debug\net8.0\EntityLayer.pdb
+C:\Users\zoyam\source\repos\Patel8201\SampleDemo\EntityLayer\obj\Debug\net8.0\ref\EntityLayer.dll
