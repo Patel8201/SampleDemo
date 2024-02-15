@@ -23,6 +23,9 @@ namespace ServiceLayer.Extensions
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IRequestAccessService, RequestAccessService>();
+            services.AddScoped<IBlogService, BlogService>();
+            services.AddScoped<IEventService, EventService>();
+            services.AddScoped<IHomeService, HomeService>();
             return services;
 
 

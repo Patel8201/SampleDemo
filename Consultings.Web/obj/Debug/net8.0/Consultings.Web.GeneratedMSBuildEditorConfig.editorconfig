@@ -26,8 +26,32 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\zoyam\source\repos\Patel8201\SampleDemo\Consultings.Web
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/zoyam/source/repos/Patel8201/SampleDemo/Consultings.Web/Areas/Admin/Views/Blog/AddBlog.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xBZGRCbG9nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/zoyam/source/repos/Patel8201/SampleDemo/Consultings.Web/Areas/Admin/Views/Blog/GetBlogList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xHZXRCbG9nTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/zoyam/source/repos/Patel8201/SampleDemo/Consultings.Web/Areas/Admin/Views/Blog/UpdateBlog.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xVcGRhdGVCbG9nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/zoyam/source/repos/Patel8201/SampleDemo/Consultings.Web/Areas/Admin/Views/Dashboard/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/zoyam/source/repos/Patel8201/SampleDemo/Consultings.Web/Areas/Admin/Views/Event/AddEvent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRXZlbnRcQWRkRXZlbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/zoyam/source/repos/Patel8201/SampleDemo/Consultings.Web/Areas/Admin/Views/Event/GetEventList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRXZlbnRcR2V0RXZlbnRMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/zoyam/source/repos/Patel8201/SampleDemo/Consultings.Web/Areas/Admin/Views/Event/UpdateEvent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRXZlbnRcVXBkYXRlRXZlbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/zoyam/source/repos/Patel8201/SampleDemo/Consultings.Web/Areas/Admin/Views/RequestAccess/AddRequestAccess.cshtml]
