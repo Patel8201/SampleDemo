@@ -22,9 +22,10 @@
     </div>
 
 
-<div class="card" style="margin-left: 256px;">
+<div class="card">
     <div class="card-header">
-        <h3 class="card-title">DataTable </h3>
+        <a asp-area="Admin" asp-controller="RequestAccess" asp-action="AddRequestAccess" class="btn btn-success btn-sm">AddRequestAccess</a>
+
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -37,6 +38,17 @@
                     <th>OtherLastName</th>
                     <th>CAQualificationYear</th>
                     <th>ProfessionalDesignation</th>
+                   @*  <th>CurrentTitle</th>
+                    <th>Phone</th>
+                    <th>Extension</th>
+                    <th>Company</th>
+                    <th>BuildingNumber</th>
+                    <th>Street</th>
+                    <th>Country</th>
+                    <th>State</th>
+                    <th>City</th> *@
+                    <th>PostalCode</th>
+                    <th>Edit</th>
                     <th>Delete</th>
                 </tr>
             </thead>
@@ -50,8 +62,14 @@
                         <th>@item.OtherLastName</th>
                         <th>@item.CAQualificationYear</th>
                         <th>@item.ProfessionalDesignation</th>
+                      @*   <th>@item.CurrentTitle</th>
+                        <th>@item.Phone</th>
+                        <th>@item.Extension</th>
+                        <th>@item.Company</th>
+                        <th>@item.BuildingNumber</th> *@
                         <td>
-                            <a href="#" class="btn btn-danger btn-sm">Delete </a>
+                            <a asp-area="Admin" asp-controller="RequestAccess" asp-action="UpdateRequestAccess" asp-route-id="@item.Id" data-id="@item.Id" class="btn btn-warning btn-sm">Edit</a>
+                            <a asp-area="Admin" asp-controller="RequestAccess" asp-action="DeleteRequestAccess" asp-route-id="@item.Id" data-id="@item.Id" class="btn btn-danger btn-sm">Delete </a>
                         </td>
                     </tr>
 
@@ -63,50 +81,3 @@
     <!-- /.card-body -->
 </div>
 
-<div class="card" style="margin-left: 256px;">
-    <div class="card-header">
-        <h3 class="card-title">DataTable </h3>
-    </div>
-    <!-- /.card-header -->
-    <div class="card-body">
-        <table id="example1" class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                    <th>CurrentTitle</th>
-                    <th>Phone</th>
-                    <th>Extension</th>
-                    <th>Company</th>
-                    <th>BuildingNumber</th>
-                    <th>Street</th>
-                    <th>Country</th>
-                    <th>State</th>
-                    <th>City</th>
-                    <th>PostalCode</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <th>@item.CurrentTitle</th>
-                        <th>@item.Phone</th>
-                        <th>@item.Extension</th>
-                        <th>@item.Company</th>
-                        <th>@item.BuildingNumber</th>
-                        <th>@item.Street</th>
-                        <th>@item.Country</th>
-                        <th>@item.State</th>
-                        <th>@item.City</th>
-                        <th>@item.PostalCode</th>
-                        <td>
-                            <a href="#" class="btn btn-danger btn-sm">Delete </a>
-                        </td>
-                    </tr>
-
-                }
-
-            </tbody>
-        </table>
-    </div>
-    <!-- /.card-body -->
-</div>

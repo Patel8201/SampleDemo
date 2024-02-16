@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "RequestAccess";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
@@ -154,10 +155,9 @@
 </head>
 
 <body class="page">
-
-
-
-    <!-- Contact Start -->
+    
+     
+        <!-- Contact Start -->
     <div class="contact mt-125">
         <div class="container">
             <div class="section-header">
@@ -172,10 +172,10 @@
 
                         <form>
                             <h3>Alumni Details</h3>
-
-                            <label  for="title">Title:</label>
+                             
+                            <label    for="title">Title:</label>
                             <input type="text" id="title" name="title" placeholder="Enter Title" pattern="[M][r|s|rs]{1}" required oninvalid="this.setCustomValidity('This is not a valid title')" oninput="this.setCustomValidity('')">
-                            <br /><br />
+                            <br /><br /> 
 
                             <label for="firstName">First Name:</label>
                             <input type="text" id="firstName" name="firstName" placeholder="Enter First Name" minlength="2" maxlength="32" pattern="[A-Za-z]{1,32}" required oninvalid="this.setCustomValidity('This is not a valid First Name')" oninput="this.setCustomValidity('')">
@@ -262,7 +262,7 @@
 
                             <label for="building">Building:</label>
                             <input type="text" id="building" name="building" placeholder="Enter Building" pattern="[A-Za-z]{1,32}" oninvalid="this.setCustomValidity('This is not a valid Building')" oninput="this.setCustomValidity('')">
-                            <br /><br /
+                            <br /><br />
 
                             <label for="number">Number:</label>
                             <input type="text" id="number" name="number" placeholder="Enter Number" pattern="[1-9]" oninvalid="this.setCustomValidity('This is not a valid Number')" oninput="this.setCustomValidity('')">
@@ -507,10 +507,11 @@
                             <br /><br />
 
                             <label for="email">Email:</label>
-                            <input type="email" id="email" name="email" placeholder="Enter Email" placeholder="youremail@kpmg.com" minlength="9" maxlength="64" pattern="[a-z0-9._%+\-]+[a-z0-9.\-]+\.[a-z]{2,}$" required oninvalid="this.setCustomValidity('This is not a valid Email Id')" oninput="this.setCustomValidity('')">
+                            <input type="email" id="email" name="email" placeholder="Enter Email" minlength="9" maxlength="64" pattern="[a-z0-9._%+\-]+[a-z0-9.\-]+\.[a-z]{2,}$" required oninvalid="this.setCustomValidity('This is not a valid Email Id')" oninput="this.setCustomValidity('')">
                             <br /><br />
 
                             <input type="submit" value="Send">
+                            
                         </form>
 
                         <!-- Pop-up message -->
@@ -537,6 +538,9 @@
         </div>
     </div>
     <!-- Contact End -->
+    
+
+   
 
 
     <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>

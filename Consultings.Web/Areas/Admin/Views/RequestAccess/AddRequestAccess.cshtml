@@ -1,8 +1,49 @@
-﻿
+﻿@model RequestAccessAddVM
 @{
     ViewData["Title"] = "AddRequestAccess";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
+<div class="card">
+    <div class="card-body">
+        <form asp-area="Admin" asp-controller="RequestAccess" asp-action="AddRequestAccess" >
+            <div class="card-body">
+                <div class="form-group">
+                    <input asp-for="Title" type="text" class="form-control" placeholder="Title" />
+                    <label asp-for="Title">Title</label>
+                </div>
+                <div class="form-group">
+                    <input asp-for="FirstName" type="text" class="form-control" placeholder="FirstName" />
+                    <label asp-for="FirstName">FirstName</label>
+                </div>
+                <div class="form-group">
+                    <input asp-for="LastName" type="text" class="form-control" placeholder="LastName" />
+                    <label asp-for="LastName">LastName</label>
+                </div>
+                <div class="form-group">
+                    <input asp-for="OtherLastName" type="text" class="form-control" placeholder="OtherLastName" />
+                    <label asp-for="OtherLastName">OtherLastName</label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CAQualificationYear">CA Qualification Year</label>
+                    <select id="year" required>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <!-- Remaining options truncated for brevity -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input asp-for="ProfessionalDesignation" type="text" class="form-control" placeholder="ProfessionalDesignation" />
+                    <label asp-for="ProfessionalDesignation">ProfessionalDesignation</label>
+                </div>
+            </div>
+            <!-- /.card-body -->
 
-
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -8,5 +8,17 @@ namespace EntityLayer.WebApplication.ViewModels.BlogVM
 {
     public class BlogUpdateVM
     {
+        public int Id { get; set; }
+
+        public string? UpdateDate { get; set; }
+
+        public byte[] RowVersion { get; set; } = null!;
+
+        public string Title { get; set; } = null!;
+        public string Content { get; set; } = null!;
+        //public DateTime Date { get; set; }
+        public string FileName { get; set; } = null!;
+        public string FileType { get; set; } = null!;
+
     }
 }
