@@ -38,16 +38,6 @@
                     <th>OtherLastName</th>
                     <th>CAQualificationYear</th>
                     <th>ProfessionalDesignation</th>
-                   @*  <th>CurrentTitle</th>
-                    <th>Phone</th>
-                    <th>Extension</th>
-                    <th>Company</th>
-                    <th>BuildingNumber</th>
-                    <th>Street</th>
-                    <th>Country</th>
-                    <th>State</th>
-                    <th>City</th> *@
-                    <th>PostalCode</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
@@ -62,15 +52,14 @@
                         <th>@item.OtherLastName</th>
                         <th>@item.CAQualificationYear</th>
                         <th>@item.ProfessionalDesignation</th>
-                      @*   <th>@item.CurrentTitle</th>
-                        <th>@item.Phone</th>
-                        <th>@item.Extension</th>
-                        <th>@item.Company</th>
-                        <th>@item.BuildingNumber</th> *@
-                        <td>
+                        <th>
                             <a asp-area="Admin" asp-controller="RequestAccess" asp-action="UpdateRequestAccess" asp-route-id="@item.Id" data-id="@item.Id" class="btn btn-warning btn-sm">Edit</a>
+
+                        </th>
+                                      <th>
                             <a asp-area="Admin" asp-controller="RequestAccess" asp-action="DeleteRequestAccess" asp-route-id="@item.Id" data-id="@item.Id" class="btn btn-danger btn-sm">Delete </a>
-                        </td>
+
+                        </th>
                     </tr>
 
                 }
@@ -81,3 +70,106 @@
     <!-- /.card-body -->
 </div>
 
+
+<div class="card">
+    <div class="card-header">
+        <a asp-area="Admin" asp-controller="RequestAccess" asp-action="AddRequestAccess" class="btn btn-success btn-sm">AddRequestAccess</a>
+
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                   
+                     <th>CurrentTitle</th>
+                    <th>Phone</th>
+                    <th>Extension</th>
+                    <th>Company</th>
+                    <th>BuildingNumber</th>
+                    <th>Street</th>
+                    <th>Country</th>
+                    <th>State</th>
+                    <th>City</th> 
+                    <th>PostalCode</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                       
+                         <th>@item.CurrentTitle</th>
+                    <th>@item.Phone</th>
+                    <th>@item.Extension</th>
+                    <th>@item.Company</th>
+                    <th>@item.BuildingNumber</th> 
+                    <th>@item.Street</th>
+                    <th>@item.Country</th>
+                    <th>@item.State</th>
+                    <th>@item.City</th>
+                    <th>@item.PostalCode</th>
+
+                        <th>
+                            <a asp-area="Admin" asp-controller="RequestAccess" asp-action="UpdateRequestAccess" asp-route-id="@item.Id" data-id="@item.Id" class="btn btn-warning btn-sm">Edit</a>
+                        </th>
+                                       <th>
+                            <a asp-area="Admin" asp-controller="RequestAccess" asp-action="DeleteRequestAccess" asp-route-id="@item.Id" data-id="@item.Id" class="btn btn-danger btn-sm">Delete </a>
+
+                        </th>
+                    </tr>
+
+                }
+
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+
+
+<div class="card">
+    <div class="card-header">
+        <a asp-area="Admin" asp-controller="RequestAccess" asp-action="AddRequestAccess" class="btn btn-success btn-sm">AddRequestAccess</a>
+
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+
+                    <th>CommencementYear</th>
+                    <th>LeaveYear</th>
+                    <th>KPMGOffice</th>
+                    <th>Company</th>
+                    <th>Email</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th>@item.CommencementYear</th>
+                        <th>@item.LeaveYear</th>
+                        <th>@item.KPMGOffice</th>
+                        <th>@item.Company</th>
+                        <th>@item.Email</th>
+                        <th>
+                            <a asp-area="Admin" asp-controller="RequestAccess" asp-action="UpdateRequestAccess" asp-route-id="@item.Id" data-id="@item.Id" class="btn btn-warning btn-sm">Edit</a>
+                        </th>
+                      <th>
+                            <a asp-area="Admin" asp-controller="RequestAccess" asp-action="DeleteRequestAccess" asp-route-id="@item.Id" data-id="@item.Id" class="btn btn-danger btn-sm">Delete </a>
+
+                        </th>    
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>

@@ -1,6 +1,7 @@
 ﻿using CoreLayer.BaseEntities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ namespace EntityLayer.WebApplication.Entities
     public class RequestAccess : BaseEntity
     {
         // Alumni Details
+        [RegularExpression("^(Mr|Ms|Mrs)\\.", ErrorMessage = "Invalid title format")]
         public string Title { get; set; } = null!;
         public string FirstName { get; set; } = null!;
         public string LastName { get; set; } = null!;

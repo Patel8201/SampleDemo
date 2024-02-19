@@ -4,5 +4,62 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h1>GetEventList</h1>
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Dashboard</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">GetEventList</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
 
+
+<div class="card">
+    <div class="card-header">
+        <a asp-area="Admin" asp-controller="Event" asp-action="AddEvent" class="btn btn-success btn-sm">AddEvent</a>
+
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Content</th>
+                    <th>FileName</th>
+                    <th>FileType</th>
+                    <th>Delete</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th>@item.Title</th>
+                        <th>@item.Content</th>
+                        <th>@item.FileName</th>
+                        <th>@item.FileType</th>
+                        <th>
+                            <a asp-area="Admin" asp-controller="Event" asp-action="UpdateEvent" asp-route-id="@item.Id" data-id="@item.Id" class="btn btn-warning btn-sm">Edit</a>
+
+                        </th>
+                        <th>
+                              <a asp-area="Admin" asp-controller="Event" asp-action="DeleteEvent" asp-route-id="@item.Id" data-id="@item.Id" class="btn btn-danger btn-sm">Delete </a>
+                        </th>
+                    </tr>
+
+                }
+
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>

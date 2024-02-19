@@ -24,13 +24,13 @@ namespace RepositoryLayer.Configuration
             //builder.Property(x => x.Date).IsRequired().HasColumnType("datetime");
             builder.Property(x => x.FileName).IsRequired().HasMaxLength(255);
             builder.Property(x => x.FileType).IsRequired().HasMaxLength(50);
-           
+
             //builder.HasData(new Blog
             //{  
             //    Id = 1,
             //    Title = "Navigating the Evolving Landscape of Auditing: Challenges and Opportunities",
             //    Content = "n the dynamic realm of financial oversight",
-                
+
 
             //    FileName ="Test",
             //    FileType = "Test"
@@ -42,6 +42,15 @@ namespace RepositoryLayer.Configuration
             //    //FileName ="Test",
             //    //FileType = "Test"
             //});
+            builder.HasData(new Blog
+            {
+                Id = 1,
+                Title = "Title",
+                Content = "Content",
+                FileName = "Test",
+                FileType = "Test",
+                UpdateDate = DateTime.Now.ToString("d")
+            });
         }
     }
 }

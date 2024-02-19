@@ -3,6 +3,53 @@
     ViewData["Title"] = "AddEvent";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Dashboard</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">AddEvent</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
 
+<div class="card">
+    <div class="card-body">
+        <form asp-area="Admin" asp-controller="Event" asp-action="AddEvent" method="post">
+            <div class="card-body">
+                <div class="form-group">
+                    <label asp-for="Title">Title</label>
+                    <input asp-for="Title" type="text" class="form-control" placeholder="Title" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Content">Content</label>
+                    <input asp-for="Content" type="text" class="form-control" placeholder="Content" />
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="FileName">FileName</label>
+                    <input asp-for="FileName" type="text" class="form-control" placeholder="FileName" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="FileType">FileType</label>
+                    <input asp-for="FileType" type="text" class="form-control" placeholder="FileType" />
+                </div>
+              
+                
+            </div>
+            <!-- /.card-body -->
+
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
 
 
