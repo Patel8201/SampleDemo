@@ -10,7 +10,7 @@ namespace CoreLayer.BaseEntities
     {
         public virtual int Id { get; set; }
 
-        public virtual String CreatedDate { get; set; } = DateTime.Now.ToString("d");
+        public virtual string CreatedDate { get; set; } = DateTime.Now.ToString("d");
 
         public virtual string? UpdateDate { get; set; }
 

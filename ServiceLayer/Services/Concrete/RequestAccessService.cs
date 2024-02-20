@@ -44,7 +44,7 @@ namespace ServiceLayer.Services.Concrete
         public async Task<RequestAccessUpdateVM> GetRequestAccessById(int id)
         {
             var requestAccess = await _genericrepositories.WhereAsync(x => x.Id == id).ProjectTo<RequestAccessUpdateVM>
-                (_mapper.ConfigurationProvider).SingleAsync();
+                (_mapper.ConfigurationProvider).FirstOrDefaultAsync();
             return requestAccess;
         }
 

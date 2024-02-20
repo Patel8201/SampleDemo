@@ -16,7 +16,7 @@ namespace RepositoryLayer.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.1")
+                .HasAnnotation("ProductVersion", "8.0.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -68,6 +68,18 @@ namespace RepositoryLayer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("blog");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Content = "Content",
+                            CreatedDate = "20-02-2024",
+                            FileName = "Test",
+                            FileType = "Test",
+                            Title = "Title",
+                            UpdateDate = "20-02-2024"
+                        });
                 });
 
             modelBuilder.Entity("EntityLayer.WebApplication.Entities.Event", b =>

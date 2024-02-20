@@ -1,8 +1,6 @@
 ﻿using EntityLayer.WebApplication.ViewModels.BlogVM;
-using EntityLayer.WebApplication.ViewModels.RequestAccessVM;
 using Microsoft.AspNetCore.Mvc;
 using ServiceLayer.Services.Abstract;
-using ServiceLayer.Services.Concrete;
 
 namespace Consultings.Web.Areas.Admin.Controllers
 {
@@ -22,21 +20,33 @@ namespace Consultings.Web.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public IActionResult AddBlog()
-        {
-            return View();
+        public IActionResult AddBlog() 
+        { 
+            return View(); 
         }
         [HttpPost]
-        public async Task<IActionResult> AddBlog(BlogAddVM request)
+        public async Task<IActionResult>AddBlog(BlogAddVM request)
         {
-            await _blogService.AddBlogAsync(request);
-            return RedirectToAction("GetBlogList", "Blog", new { Areas = ("Admin") });
+            await _blogService.AddBlogAsync(request);   
+            return RedirectToAction("GetBlogList", "Blog" , new {Areas = ("Admin")});
         }
-        [HttpGet]
+
+        //[HttpGet]
+        //public IActionResult AddBlog()
+        //{
+        //    return View();
+        //}
+        //[HttpPost]
+        //public async Task<IActionResult> AddBlog(BlogAddVM request)
+        //{
+        //    await _blogService.AddBlogAsync(request);
+        //    return RedirectToAction("GetBlogList", "Blog", new { Areas = ("Admin") });
+        //}
+        //[HttpGet]
         public async Task<IActionResult> UpdateBlog(int id)
         {
-            var Blog = await _blogService.GetBlogById(id);
-            return View(Blog);
+            var blog = await _blogService.GetBlogById(id);
+            return View(blog);
         }
 
         [HttpPost]

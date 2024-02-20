@@ -3,3 +3,64 @@
     ViewData["Title"] = "UpdateRequestAccess";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">UpdateRequestAccess</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">UpdateRequestAccess</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form asp-area="Admin" asp-controller="RequestAccess" asp-action="UpdateRequestAccess">
+            <div class="card-body">
+                <div class="form-group">
+                    <label asp-for="Title">Title</label>
+                    <input asp-for="Title" type="text" class="form-control" placeholder="Title" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="FirstName">FirstName</label>
+                    <input asp-for="FirstName" type="text" class="form-control" placeholder="FirstName" />
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName">LastName</label>
+                    <input asp-for="LastName" type="text" class="form-control" placeholder="LastName" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="OtherLastName">OtherLastName</label>
+                    <input asp-for="OtherLastName" type="text" class="form-control" placeholder="OtherLastName" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="CAQualificationYear">CA Qualification Year</label>
+                    <select id="year" required>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <!-- Remaining options truncated for brevity -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ProfessionalDesignation">ProfessionalDesignation</label>
+                    <input asp-for="ProfessionalDesignation" type="text" class="form-control" placeholder="ProfessionalDesignation" />
+
+                </div>
+            </div>
+            <!-- /.card-body -->
+
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -40,8 +40,11 @@ namespace ServiceLayer.Services.Concrete
         }
         public async Task<EventUpdateVM> GetEventById(int id)
         {
-            var Event = await _genericrepositories.WhereAsync(x => x.Id == id).ProjectTo<EventUpdateVM>
-                (_mapper.ConfigurationProvider).SingleAsync();
+            //var Event = await _genericrepositories.WhereAsync(x => x.Id == id).ProjectTo<EventUpdateVM>
+            //    (_mapper.ConfigurationProvider).SingleAsync();
+            var Event = await _genericrepositories.WhereAsync(x => x.Id == id)
+                                         .ProjectTo<EventUpdateVM>(_mapper.ConfigurationProvider)
+                                         .FirstOrDefaultAsync();
             return Event;
         }
         public async Task UpdateEventAsync(EventUpdateVM request)

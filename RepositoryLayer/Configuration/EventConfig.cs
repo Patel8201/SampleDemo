@@ -32,7 +32,14 @@ namespace RepositoryLayer.Configuration
             //    FileName = "Test",
             //    FileType = "Test"
             //});
-
+            //builder.HasData(new Blog
+            //{
+            //    Id = 1, 
+            //    Title = "Title",
+            //    Content = "In the dynamic realm of financial oversight",
+            //    FileName= "Test",
+            //    FileType= "Test",
+            //});
         }
     }
 }

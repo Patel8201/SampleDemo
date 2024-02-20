@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.WebApplication.Entities
 {
-      public class Blog :  BaseEntity
+    public class Blog :  BaseEntity
       {
         public string Title { get; set; } = null!;
         public string Content { get; set; } = null!;
