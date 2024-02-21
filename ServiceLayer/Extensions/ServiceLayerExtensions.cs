@@ -1,19 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using RepositoryLayer.Context;
-using RepositoryLayer.Repositories.Abstract;
-using RepositoryLayer.Repositories.Concrete;
-using RepositoryLayer.UnitOfWorks.Abstract;
-using RepositoryLayer.UnitOfWorks.Concrete;
+using ServiceLayer.Extensions.Identity;
 using ServiceLayer.Services.Abstract;
 using ServiceLayer.Services.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ServiceLayer.Extensions
 {
@@ -21,11 +11,14 @@ namespace ServiceLayer.Extensions
     {
         public static IServiceCollection LoadServiceLayerExtensions(this IServiceCollection services, IConfiguration configuration)
         {
+            services.LoadIdentityExtensions();
+
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IRequestAccessService, RequestAccessService>();
             services.AddScoped<IBlogService, BlogService>();
             services.AddScoped<IEventService, EventService>();
             services.AddScoped<IHomeService, HomeService>();
+
             return services;
 
 
