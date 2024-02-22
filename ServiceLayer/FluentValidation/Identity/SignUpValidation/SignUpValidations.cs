@@ -13,8 +13,8 @@ namespace ServiceLayer.FluentValidation.Identity.SignUpValidation
         public SignUpValidations()
         {
             RuleFor(x => x.Title)
-                .NotEmpty()
-                .NotNull();
+                .NotEmpty().WithMessage("First name is required.")
+                .NotNull().WithMessage("First name is required.");
             RuleFor(x => x.FirstName)
                 .NotEmpty()
                 .NotNull();

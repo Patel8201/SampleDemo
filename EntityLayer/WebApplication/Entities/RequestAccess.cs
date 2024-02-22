@@ -35,5 +35,6 @@ namespace EntityLayer.WebApplication.Entities
         public string KPMGOffice { get; set; } = null!;
         //Personal Details
         public string Email { get; set; } = null!;
+        
     }
 }

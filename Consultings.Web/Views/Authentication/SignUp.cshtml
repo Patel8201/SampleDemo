@@ -1,9 +1,10 @@
-﻿
+﻿@using EntityLayer.Identity.ViewModels
+@model SignUpVM
 @{
-    ViewData["Title"] = "RequestAccess";
+    ViewData["Title"] = "SignUp";
     Layout = "~/Views/Shared/_Layout.cshtml";
-
 }
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,91 +12,91 @@
     <title>Request Access</title>
 
     <script>
-    const statesByCountry = {
-    usa: {
-    'New York': ['New York City', 'Buffalo', 'Rochester', 'Syracuse', 'Albany'],
-    'California': ['Los Angeles', 'San Francisco', 'San Diego', 'Sacramento', 'Fresno'],
-    'Texas': ['Houston', 'Dallas', 'Austin', 'San Antonio', 'Fort Worth'],
-    'Florida': ['Miami', 'Orlando', 'Tampa', 'Jacksonville', 'Fort Lauderdale'],
-    'Illinois': ['Chicago', 'Springfield', 'Peoria', 'Rockford', 'Aurora']
-    },
-    canada: {
-    'Ontario': ['Toronto', 'Ottawa', 'Hamilton', 'London', 'Mississauga'],
-    'Quebec': ['Montreal', 'Quebec City', 'Laval', 'Gatineau', 'Sherbrooke'],
-    'British Columbia': ['Vancouver', 'Victoria', 'Surrey', 'Burnaby', 'Kelowna'],
-    'Alberta': ['Calgary', 'Edmonton', 'Red Deer', 'Lethbridge', 'Medicine Hat'],
-    'Manitoba': ['Winnipeg', 'Brandon', 'Steinbach', 'Portage la Prairie', 'Thompson']
-    },
-    uk: {
-    'England': ['London', 'Manchester', 'Birmingham', 'Liverpool', 'Bristol'],
-    'Scotland': ['Edinburgh', 'Glasgow', 'Aberdeen', 'Dundee', 'Inverness'],
-    'Wales': ['Cardiff', 'Swansea', 'Newport', 'Wrexham', 'Bangor'],
-    'Northern Ireland': ['Belfast', 'Derry', 'Lisburn', 'Newry', 'Armagh'],
-    'Isle of Man': ['Douglas', 'Peel', 'Ramsey', 'Castletown', 'Port Erin']
-    },
-    australia: {
-    'New South Wales': ['Sydney', 'Newcastle', 'Central Coast', 'Wollongong', 'Maitland'],
-    'Victoria': ['Melbourne', 'Geelong', 'Ballarat', 'Bendigo', 'Shepparton'],
-    'Queensland': ['Brisbane', 'Gold Coast', 'Sunshine Coast', 'Townsville', 'Cairns'],
-    'Western Australia': ['Perth', 'Fremantle', 'Mandurah', 'Bunbury', 'Geraldton'],
-    'South Australia': ['Adelaide', 'Mount Gambier', 'Whyalla', 'Murray Bridge', 'Port Augusta']
-    },
-    india: {
-    'Maharashtra': ['Mumbai', 'Pune', 'Nagpur', 'Nashik', 'Aurangabad'],
-    'Tamil Nadu': ['Chennai', 'Coimbatore', 'Madurai', 'Tiruchirappalli', 'Salem'],
-    'Uttar Pradesh': ['Lucknow', 'Kanpur', 'Agra', 'Varanasi', 'Meerut'],
-    'Karnataka': ['Bangalore', 'Mysore', 'Hubli', 'Mangalore', 'Belgaum'],
-    'Delhi': ['New Delhi', 'North Delhi', 'South Delhi', 'East Delhi', 'West Delhi']
-    }
-    };
+        const statesByCountry = {
+            usa: {
+                'New York': ['New York City', 'Buffalo', 'Rochester', 'Syracuse', 'Albany'],
+                'California': ['Los Angeles', 'San Francisco', 'San Diego', 'Sacramento', 'Fresno'],
+                'Texas': ['Houston', 'Dallas', 'Austin', 'San Antonio', 'Fort Worth'],
+                'Florida': ['Miami', 'Orlando', 'Tampa', 'Jacksonville', 'Fort Lauderdale'],
+                'Illinois': ['Chicago', 'Springfield', 'Peoria', 'Rockford', 'Aurora']
+            },
+            canada: {
+                'Ontario': ['Toronto', 'Ottawa', 'Hamilton', 'London', 'Mississauga'],
+                'Quebec': ['Montreal', 'Quebec City', 'Laval', 'Gatineau', 'Sherbrooke'],
+                'British Columbia': ['Vancouver', 'Victoria', 'Surrey', 'Burnaby', 'Kelowna'],
+                'Alberta': ['Calgary', 'Edmonton', 'Red Deer', 'Lethbridge', 'Medicine Hat'],
+                'Manitoba': ['Winnipeg', 'Brandon', 'Steinbach', 'Portage la Prairie', 'Thompson']
+            },
+            uk: {
+                'England': ['London', 'Manchester', 'Birmingham', 'Liverpool', 'Bristol'],
+                'Scotland': ['Edinburgh', 'Glasgow', 'Aberdeen', 'Dundee', 'Inverness'],
+                'Wales': ['Cardiff', 'Swansea', 'Newport', 'Wrexham', 'Bangor'],
+                'Northern Ireland': ['Belfast', 'Derry', 'Lisburn', 'Newry', 'Armagh'],
+                'Isle of Man': ['Douglas', 'Peel', 'Ramsey', 'Castletown', 'Port Erin']
+            },
+            australia: {
+                'New South Wales': ['Sydney', 'Newcastle', 'Central Coast', 'Wollongong', 'Maitland'],
+                'Victoria': ['Melbourne', 'Geelong', 'Ballarat', 'Bendigo', 'Shepparton'],
+                'Queensland': ['Brisbane', 'Gold Coast', 'Sunshine Coast', 'Townsville', 'Cairns'],
+                'Western Australia': ['Perth', 'Fremantle', 'Mandurah', 'Bunbury', 'Geraldton'],
+                'South Australia': ['Adelaide', 'Mount Gambier', 'Whyalla', 'Murray Bridge', 'Port Augusta']
+            },
+            india: {
+                'Maharashtra': ['Mumbai', 'Pune', 'Nagpur', 'Nashik', 'Aurangabad'],
+                'Tamil Nadu': ['Chennai', 'Coimbatore', 'Madurai', 'Tiruchirappalli', 'Salem'],
+                'Uttar Pradesh': ['Lucknow', 'Kanpur', 'Agra', 'Varanasi', 'Meerut'],
+                'Karnataka': ['Bangalore', 'Mysore', 'Hubli', 'Mangalore', 'Belgaum'],
+                'Delhi': ['New Delhi', 'North Delhi', 'South Delhi', 'East Delhi', 'West Delhi']
+            }
+        };
 
-    function updateStates() {
-    const countrySelect = document.getElementById('country');
-    const stateSelect = document.getElementById('state');
-    const citySelect = document.getElementById('city');
+        function updateStates() {
+            const countrySelect = document.getElementById('country');
+            const stateSelect = document.getElementById('state');
+            const citySelect = document.getElementById('city');
 
-    const selectedCountry = countrySelect.value;
+            const selectedCountry = countrySelect.value;
 
-    // Populate states based on the selected country
-    const states = Object.keys(statesByCountry[selectedCountry]);
-    stateSelect.innerHTML = '<option value="" selected disabled>Select State</option>';
-    states.forEach(state => {
-    const option = document.createElement('option');
-    option.value = state;
-    option.text = state;
-    stateSelect.appendChild(option);
-    });
+            // Populate states based on the selected country
+            const states = Object.keys(statesByCountry[selectedCountry]);
+            stateSelect.innerHTML = '<option value="" selected disabled>Select State</option>';
+            states.forEach(state => {
+                const option = document.createElement('option');
+                option.value = state;
+                option.text = state;
+                stateSelect.appendChild(option);
+            });
 
-    // Enable the state select
-    stateSelect.disabled = false;
-    // Disable and reset the city select
-    citySelect.disabled = true;
-    citySelect.innerHTML = '<option value="" selected disabled>Select City</option>';
-    }
+            // Enable the state select
+            stateSelect.disabled = false;
+            // Disable and reset the city select
+            citySelect.disabled = true;
+            citySelect.innerHTML = '<option value="" selected disabled>Select City</option>';
+        }
 
-    function updateCities() {
-    const countrySelect = document.getElementById('country');
-    const stateSelect = document.getElementById('state');
-    const citySelect = document.getElementById('city');
+        function updateCities() {
+            const countrySelect = document.getElementById('country');
+            const stateSelect = document.getElementById('state');
+            const citySelect = document.getElementById('city');
 
-    // Enable the city select
-    citySelect.disabled = false;
+            // Enable the city select
+            citySelect.disabled = false;
 
-    // You can populate cities based on the selected state
-    const selectedCountry = countrySelect.value;
-    const selectedState = stateSelect.value;
-    const cities = statesByCountry[selectedCountry][selectedState];
+            // You can populate cities based on the selected state
+            const selectedCountry = countrySelect.value;
+            const selectedState = stateSelect.value;
+            const cities = statesByCountry[selectedCountry][selectedState];
 
-    citySelect.innerHTML = '<option value="" selected disabled>Select City</option>';
-    cities.forEach(city => {
-    const option = document.createElement('option');
-    option.value = city;
-    option.text = city;
-    citySelect.appendChild(option);
-    });
-    }
-    </script> 
-     <script>
+            citySelect.innerHTML = '<option value="" selected disabled>Select City</option>';
+            cities.forEach(city => {
+                const option = document.createElement('option');
+                option.value = city;
+                option.text = city;
+                citySelect.appendChild(option);
+            });
+        }
+    </script>
+    <script>
         function validateForm() {
             var designation = document.getElementById("designation").value;
 
@@ -108,15 +109,15 @@
 
             return true;
         }
-    </script> 
+    </script>
 
 
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Consulting Website Template Free Download" name="keywords">
-    <meta content="Consulting Website Template Free Download" name="description"> 
+    <meta content="Consulting Website Template Free Download" name="description">
 
     <!-- Favicon -->
-    <link href="~/consulting-website-template-20240202T054525Z-001/consulting-website-template/img/favicon.ico" rel="icon">
+    <link href="~/consulting-website-template-20240202T054525Z-001/consulting-website-templateimg/favicon.ico" rel="icon">
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Lato&family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
@@ -124,11 +125,11 @@
     <!-- CSS Libraries -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="~/consulting-website-template-20240202T054525Z-001/consulting-website-template/lib/animate/animate.min.css" rel="stylesheet">
-    <link href="~/consulting-website-template-20240202T054525Z-001/consulting-website-template/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet"> 
+    <link href="~/consulting-website-template-20240202T054525Z-001/consulting-website-templatelib/animate/animate.min.css" rel="stylesheet">
+    <link href="~/consulting-website-template-20240202T054525Z-001/consulting-website-templatelib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="~/consulting-website-template-20240202T054525Z-001/consulting-website-template/css/style.css" rel="stylesheet">
+    <link href="~/consulting-website-template-20240202T054525Z-001/consulting-website-templatecss/style.css" rel="stylesheet">
 
     <style>
         /* Add some basic styling for the form and pop-up */
@@ -155,9 +156,9 @@
 </head>
 
 <body class="page">
-    
-     
-        <!-- Contact Start -->
+
+
+    <!-- Contact Start -->
     <div class="contact mt-125">
         <div class="container">
             <div class="section-header">
@@ -170,27 +171,31 @@
                     <div class="contact-form">
                         <div id="success"></div>
 
-                        <form>
+                        <form asp-controller="RequestAccess" asp-action="AddRequestAccess" method="post">
                             <h3>Alumni Details</h3>
-                             
-                            <label    for="title">Title:</label>
-                            <input type="text" id="title" name="title" placeholder="Enter Title" pattern="[M][r|s|rs]{1}" required oninvalid="this.setCustomValidity('This is not a valid title')" oninput="this.setCustomValidity('')">
-                            <br /><br /> 
 
-                            <label for="firstName">First Name:</label>
-                            <input type="text" id="firstName" name="firstName" placeholder="Enter First Name" minlength="2" maxlength="32" pattern="[A-Za-z]{1,32}" required oninvalid="this.setCustomValidity('This is not a valid First Name')" oninput="this.setCustomValidity('')">
+                            <label asp-for="Title">Title:</label>
+                            <input asp-for="Title" type="text" id="title" name="title" placeholder="Enter Title">
+                            <span asp-validation-for="Title" class="text-danger"></span>
                             <br /><br />
 
-                            <label for="lastName">Last Name:</label>
-                            <input type="text" id="lastName" name="lastName" placeholder="Enter Last Name" minlength="2" maxlength="32" pattern="[A-Za-z]{1,32}" required oninvalid="this.setCustomValidity('This is not a valid Last Name')" oninput="this.setCustomValidity('')">
+                            <label asp-for="FirstName">First Name:</label>
+                            <input asp-for="FirstName" type="text" id="firstName" name="firstName" placeholder="Enter First Name" >
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
                             <br /><br />
 
-                            <label for="otherLastName">Other Last Name:</label>
-                            <input type="text" id="otherLastName" name="otherLastName" placeholder="Enter Other Last Name" minlength="2" maxlength="32" pattern="[A-Za-z]{1,32}" oninvalid="this.setCustomValidity('This is not a valid Name')" oninput="this.setCustomValidity('')">
+                            <label  asp-for="LastName">Last Name:</label>
+                            <input asp-for="LastName" type="text" id="lastName" name="lastName" placeholder="Enter Last Name" >
+                            <span asp-validation-for="LastName" class="text-danger"></span>
                             <br /><br />
 
-                            <label for="CA Qualification Year">CA Qualification Year</label>
-                            <select id=" year" required>
+                            <label asp-for="OtherLastName">Other Last Name:</label>
+                            <input asp-for= "OtherLastName" type="text" id="otherLastName" name="otherLastName" placeholder="Enter Other Last Name" >
+                            <span asp-validation-for="OtherLastName" class="text-danger"></span>
+                            <br /><br />
+
+                            <label asp-for="CAQualificationYear">CA Qualification Year</label>
+                            <select asp-for="CAQualificationYear" id=" year" required>
                                 <option value="2024">2024</option>
                                 <option value="2023">2023</option>
                                 <option value="2022">2022</option>
@@ -218,14 +223,14 @@
                                 <option value="2000">2000</option>
 
                             </select>
-
+                            <span asp-validation-for="CAQualificationYear" class="text-danger"></span>
                             <br /><br />
 
 
 
 
-                            <label for="designation">Professional Designation:</label>
-                            <select id="designation" name="Professional Designation">
+                            <label asp-for="ProfessionalDesignation" >Professional Designation:</label>
+                            <select asp-for="ProfessionalDesignation" id="designation" name="Professional Designation">
 
                                 <option value="BA">BA</option>
                                 <option value="BBA">BBA</option>
@@ -238,45 +243,53 @@
                                 <option value="CGA">CGA</option>
                                 <!-- Add more options as needed -->
                             </select>
+                            <span asp-validation-for="ProfessionalDesignation" class="text-danger"></span>
                             <br /><br />
 
 
 
 
                             <h3>Business Details</h3>
-                            <label for="currentTitle">Current Title:</label>
-                            <input type="text" id="currentTitle" name="currentTitle" placeholder="Enter Current Title" pattern="[A-Za-z]{1,32}" oninvalid="this.setCustomValidity('This is not a valid Title')" oninput="this.setCustomValidity('')">
+                            <label asp-for="CurrentTitle" >Current Title:</label>
+                            <input asp-for="CurrentTitle" type="text" id="currentTitle" name="currentTitle" placeholder="Enter Current Title" >
+                            <span asp-validation-for="CurrentTitle" class="text-danger"></span>
                             <br /><br />
 
-                            <label for="phone">Phone:</label>
-                            <input type="tel" id="phone" name="phone" placeholder="Enter Phone" pattern="[6789][0-9]{9}" required oninvalid="this.setCustomValidity('This is not a valid Phone Number')" oninput="this.setCustomValidity('')">
+                            <label asp-for="Phone">Phone:</label>
+                            <input asp-for="Phone" type="tel" id="phone" name="phone" placeholder="Enter Phone" >
+                            <span asp-validation-for="Phone" class="text-danger"></span>
                             <br /><br />
 
-                            <label for="extension">Extension:</label>
-                            <input type="text" id="extension" name="extension" placeholder="Enter Extension" pattern="[0-9]{0,3}" oninvalid="this.setCustomValidity('This is not a valid Extension')" oninput="this.setCustomValidity('')">
+                            <label asp-for="Extension">Extension:</label>
+                            <input asp-for="Extension" type="text" id="extension" name="extension" placeholder="Enter Extension" >
+                            <span asp-validation-for="Extension" class="text-danger"></span>
                             <br /><br />
 
-                            <label for="company">Company:</label>
-                            <input type="text" id="company" name="company" placeholder="Enter Company" pattern="[A-Za-z]{1,32}" required oninvalid="this.setCustomValidity('This is not a valid Company Name')" oninput="this.setCustomValidity('')">
+                            <label asp-for="Company">Company:</label>
+                            <input asp-for="Company" type="text" id="company" name="company" placeholder="Enter Company" pattern="[A-Za-z]{1,32}" required oninvalid="this.setCustomValidity('This is not a valid Company Name')" oninput="this.setCustomValidity('')">
+                            <span asp-validation-for="Company" class="text-danger"></span>
                             <br /><br />
 
-                            <label for="building">Building:</label>
-                            <input type="text" id="building" name="building" placeholder="Enter Building" pattern="[A-Za-z]{1,32}" oninvalid="this.setCustomValidity('This is not a valid Building')" oninput="this.setCustomValidity('')">
+                            <label asp-for="BuildingNumber">Building:</label>
+                            <input asp-for="BuildingNumber" type="text" id="building" name="building" placeholder="Enter Building" pattern="[A-Za-z]{1,32}" oninvalid="this.setCustomValidity('This is not a valid Building')" oninput="this.setCustomValidity('')">
+                            <span asp-validation-for="BuildingNumber" class="text-danger"></span>
                             <br /><br />
 
-                            <label for="number">Number:</label>
-                            <input type="text" id="number" name="number" placeholder="Enter Number" pattern="[1-9]" oninvalid="this.setCustomValidity('This is not a valid Number')" oninput="this.setCustomValidity('')">
+@*                             <label asp-for="Number">Number:</label>
+                            <input asp-for="Number" type="text" id="number" name="number" placeholder="Enter Number" pattern="[1-9]" oninvalid="this.setCustomValidity('This is not a valid Number')" oninput="this.setCustomValidity('')">
+                            <span asp-validation-for="Number" class="text-danger"></span>
+                            <br /><br /> *@
+
+                            <label asp-for="Street" for="street">Street:</label>
+                            <input asp-for="Street" type="text" id="street" name="street" placeholder="Enter Street" pattern="[A-Za-z0-9]{1,32}" oninvalid="this.setCustomValidity('This is not a valid Street')" oninput="this.setCustomValidity('')">
+                            <span asp-validation-for="Street" class="text-danger"></span>
                             <br /><br />
 
-                            <label for="street">Street:</label>
-                            <input type="text" id="street" name="street" placeholder="Enter Street" pattern="[A-Za-z0-9]{1,32}" oninvalid="this.setCustomValidity('This is not a valid Street')" oninput="this.setCustomValidity('')">
-                            <br /><br />
 
 
 
-
-                            <label for="country">Country:</label>
-                            <select id="country" onchange="updateStates()" required>
+                            <label asp-for="Country">Country:</label>
+                            <select asp-for="Country" id="country" onchange="updateStates()" required>
                                 <option value="india">India</option>
                                 <option value="usa">USA</option>
                                 <option value="canada">Canada</option>
@@ -284,35 +297,36 @@
                                 <option value="australia">Australia</option>
 
                             </select>
-
+                            <span asp-validation-for="Country" class="text-danger"></span>
                             <br /><br />
 
 
 
-                            <label for="state">State:</label>
-                            <select id="state" onchange="updateCities()" disabled>
+                            <label asp-for="State">State:</label>
+                            <select asp-for="State" id="state" onchange="updateCities()" disabled>
                                 <option value="" selected disabled>Select State</option>
                             </select>
-
+                            <span asp-validation-for="State" class="text-danger"></span>
                             <br /><br />
 
 
 
-                            <label for="city">City:</label>
-                            <select id="city" disabled>
+                            <label asp-for="City">City:</label>
+                            <select asp-for="City"  id="city" disabled>
                                 <option value="" selected disabled>Select City</option>
                             </select>
-
+                            <span asp-validation-for="City" class="text-danger"></span>
                             <br /><br />
 
-                            <label for="postalCode">Postal Code:</label>
-                            <input type="text" id="postalCode" name="postalCode" placeholder="Enter Postal Code" pattern="[1-9][0-9]{5}" oninvalid="this.setCustomValidity('This is not a valid Postal Code')" oninput="this.setCustomValidity('')">
+                            <label asp-for="PostalCode">Postal Code:</label>
+                            <input asp-for="PostalCode" type="text" id="postalCode" name="postalCode" placeholder="Enter Postal Code" pattern="[1-9][0-9]{5}" oninvalid="this.setCustomValidity('This is not a valid Postal Code')" oninput="this.setCustomValidity('')">
+                            <span asp-validation-for="PostalCode" class="text-danger"></span>
                             <br /><br />
 
                             <h3>Employee Details</h3>
 
-                            <label for="Commencement Year">Commencement Year</label>
-                            <select id=" year" required>
+                            <label asp-for="CommencementYear">Commencement Year</label>
+                            <select asp-for="CommencementYear" id=" year" required>
                                 <option value="2024">2024</option>
                                 <option value="2023">2023</option>
                                 <option value="2022">2022</option>
@@ -340,10 +354,11 @@
                                 <option value="2000">2000</option>
 
                             </select>
+                            <span asp-validation-for="CommencementYear" class="text-danger"></span>
                             <br /><br />
 
-                            <label for="Leave Year">Leave Year</label>
-                            <select id="year" required>
+                            <label asp-for="LeaveYear">Leave Year</label>
+                            <select asp-for="LeaveYear" id="year" required>
                                 <option value="2024">2024</option>
                                 <option value="2023">2023</option>
                                 <option value="2022">2022</option>
@@ -371,11 +386,11 @@
                                 <option value="2000">2000</option>
 
                             </select>
-
+                            <span asp-validation-for="LeaveYear" class="text-danger"></span>
                             <br /><br />
 
-                            <label for="KPMG Office">KPMG Office:</label>
-                            <select id=" Select Office" name="KPMG Office" required>
+                            <label asp-for="KPMGOffice">KPMG Office:</label>
+                            <select asp-for="KPMGOffice"  id=" Select Office" name="KPMG Office" required>
 
                                 <option value="MONTREAL">MONTREAL</option>
                                 <option value="GTA">GTA</option>
@@ -388,13 +403,14 @@
                                 <option value="HAMILTON">HAMILTON</option>
                                 <!-- Add more options as needed -->
                             </select>
+                            <span asp-validation-for="KPMGOffice" class="text-danger"></span>
                             <br /><br />
 
                             <h3>Personal Details</h3>
 
 
-                            <label for="Pcountry">Country:</label>
-                            <select id="Pcountry" onchange="populatePstates()" required>
+                            <label asp-for="Country">Country:</label>
+                            <select asp-for="Country" id="Pcountry" onchange="populatePstates()" required>
                                 <option value="india">India</option>
                                 <option value="usa">USA</option>
                                 <option value="canada">Canada</option>
@@ -403,19 +419,21 @@
 
                                 <!-- Add more countries as needed -->
                             </select>
+                            <span asp-validation-for="Country" class="text-danger"></span>
                             <br /><br />
 
-                            <label for="Pstate">State:</label>
-                            <select id="Pstate" onchange="populatePcities()" required>
+                            <label asp-for="State">State:</label>
+                            <select asp-for="State" id="Pstate" onchange="populatePcities()" required>
                                 <!-- States will be populated dynamically based on the selected Pcountry -->
                             </select>
+                            <span asp-validation-for="State" class="text-danger"></span>
                             <br /><br />
 
-                            <label for="Pcity">City:</label>
-                            <select id="Pcity" required>
+                            <label asp-for="City">City:</label>
+                            <select asp-for="City" id="Pcity" required>
                                 <!-- Cities will be populated dynamically based on the selected Pstate -->
                             </select>
-
+                            <span asp-validation-for="City" class="text-danger"></span>
                             <script>
                                 const PcountryStateCity = {
                                     usa: {
@@ -502,16 +520,16 @@
                             <br /><br />
 
 
-                            <label for="phone">Phone:</label>
-                            <input type="tel" id="phone" name="phone" placeholder="Enter Phone" pattern="[6789][0-9]{9}" required oninvalid="this.setCustomValidity('This is not a valid Phone Number')" oninput="this.setCustomValidity('')">
+                         @*    <label asp-for="Phone">Phone:</label>
+                            <input asp-for="Phone" type="tel" id="phone" name="phone" placeholder="Enter Phone" pattern="[6789][0-9]{9}" required oninvalid="this.setCustomValidity('This is not a valid Phone Number')" oninput="this.setCustomValidity('')">
                             <br /><br />
 
-                            <label for="email">Email:</label>
-                            <input type="email" id="email" name="email" placeholder="Enter Email" minlength="9" maxlength="64" pattern="[a-z0-9._%+\-]+[a-z0-9.\-]+\.[a-z]{2,}$" required oninvalid="this.setCustomValidity('This is not a valid Email Id')" oninput="this.setCustomValidity('')">
-                            <br /><br />
+                            <label asp-for="Email">Email:</label>
+                            <input asp-for="Email" type="email" id="email" name="email" placeholder="Enter Email" minlength="9" maxlength="64" pattern="[a-z0-9._%+\-]+[a-z0-9.\-]+\.[a-z]{2,}$" required oninvalid="this.setCustomValidity('This is not a valid Email Id')" oninput="this.setCustomValidity('')">
+                            <br /><br /> *@
 
-                            <input type="submit" value="Send">
-                            
+                                   <button class="btn btn-primary w-100" type="submit">Submit</button>
+
                         </form>
 
                         <!-- Pop-up message -->
@@ -538,9 +556,9 @@
         </div>
     </div>
     <!-- Contact End -->
-    
 
-   
+
+
 
 
     <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>

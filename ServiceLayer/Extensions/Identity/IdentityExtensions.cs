@@ -1,6 +1,7 @@
 ﻿using EntityLayer.Identity.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RepositoryLayer.Context;
 
@@ -8,7 +9,7 @@ namespace ServiceLayer.Extensions.Identity
 {
     public static class IdentityExtensions
     {
-        public static IServiceCollection LoadIdentityExtensions(this IServiceCollection services)
+        public static IServiceCollection LoadIdentityExtensions(this IServiceCollection services,IConfiguration config)
         {
             services.AddIdentity<AppUser, AppRole>(opt =>
             {
