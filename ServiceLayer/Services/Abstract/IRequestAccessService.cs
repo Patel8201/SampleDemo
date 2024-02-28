@@ -13,7 +13,6 @@ namespace ServiceLayer.Services.Abstract
         Task AddRequestAccessAsync(RequestAccessAddVM request);
         Task<RequestAccessUpdateVM> GetRequestAccessById(int id);
         Task UpdateRequestAccessAsync(RequestAccessUpdateVM request);
-
         Task DeleteRequestAccessAsync(int id);
     }
 }
